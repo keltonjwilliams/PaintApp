@@ -8,8 +8,7 @@ import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
-// Paint App v1.0
-@SuppressWarnings("serial")
+// Paint App v1.1
 public class DrawArea extends JPanel {
 	
 	private PaintApp app;
@@ -35,6 +34,11 @@ public class DrawArea extends JPanel {
 		
 		addMouseListener(ma);
 		addMouseMotionListener(ma);
+	}
+	
+	public void clear() {
+		drawings.clear();
+		repaint();
 	}
 	
 	protected void paintComponent(Graphics g) {

@@ -6,6 +6,7 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.geom.Ellipse2D;
 
+// Paint App v1.1
 public class Dot {
 	
 	private Color color;
