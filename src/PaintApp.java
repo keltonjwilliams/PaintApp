@@ -13,7 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-// Paint App v1.1
+// Paint App v1.2
 public class PaintApp {
 	
 	public static final int WIDTH = (int) (Toolkit.getDefaultToolkit().getScreenSize().getWidth()/2),
@@ -35,7 +35,7 @@ public class PaintApp {
 		
 		frame.setLayout(new BorderLayout());
 		
-		String[] colors = {"Black", "Red", "Orange", "Yellow", "Green", "Blue", "Purple"};
+		String[] colors = {"Black", "White", "Red", "Orange", "Yellow", "Green", "Blue", "Purple"};
 		JComboBox<String> colorChooser = new JComboBox<String>(colors);
 		colorChooser.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -44,21 +44,24 @@ public class PaintApp {
 						color = Color.BLACK;
 						break;
 					case 1:
-						color = Color.RED;
+						color = Color.WHITE;
 						break;
 					case 2:
-						color = Color.ORANGE;
+						color = Color.RED;
 						break;
 					case 3:
-						color = Color.YELLOW;
+						color = Color.ORANGE;
 						break;
 					case 4:
-						color = Color.GREEN;
+						color = Color.YELLOW;
 						break;
 					case 5:
-						color = Color.BLUE;
+						color = Color.GREEN;
 						break;
 					case 6:
+						color = Color.BLUE;
+						break;
+					case 7:
 						color = Color.MAGENTA;
 						break;
 				}
@@ -73,6 +76,13 @@ public class PaintApp {
 			}
 		});
 		
+		JButton undobtn = new JButton("Undo");
+		undobtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				da.undo();
+			}
+		});
+		
 		JButton clearbtn = new JButton("Clear");
 		clearbtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -82,6 +92,7 @@ public class PaintApp {
 		
 		JPanel top = new JPanel(new FlowLayout());
 		
+		top.add(undobtn);	
 		top.add(new JLabel("Color:"));
 		top.add(colorChooser);
 		top.add(new JLabel("Size"));
